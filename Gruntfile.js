@@ -67,14 +67,14 @@ module.exports = function(grunt) {
         ],
         options: {
           specs: 'test/spec/*Spec.js',
-          outfile: 'test/build/TestsResult.html',
+          outfile: 'build/TestsResult.html',
           template: require('grunt-template-jasmine-istanbul'),
           templateOptions: {
-            coverage: 'test/build/coverage/coverage.json',
+            coverage: 'build/coverage/coverage.json',
             report: {
               type: 'html',
               options: {
-                dir: 'test/build/coverage'
+                dir: 'build/coverage'
               }
             },
             thresholds: {
@@ -96,11 +96,11 @@ module.exports = function(grunt) {
         ],
         options: {
           specs: 'test/spec/*Spec.js',
-          outfile: 'test/build/TestsResult.html',
+          outfile: 'build/TestsResult.html',
           template: require('grunt-template-jasmine-istanbul'),
           templateOptions: {
-            coverage: 'test/build/coverage/coverage.json',
-            report: 'test/build/coverage',
+            coverage: 'build/coverage/coverage.json',
+            report: 'build/coverage',
             thresholds: {
               lines: 75,
               statements: 75,

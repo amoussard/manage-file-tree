@@ -4,6 +4,8 @@ function Node(value) {
       this.value = value;
     }
     this.path = undefined;
+    this.extension = undefined;
+    this.type = undefined;
     this.sons = [];
 }
 
@@ -17,6 +19,22 @@ Node.prototype.getPath = function () {
 
 Node.prototype.setPath = function (path) {
     this.path = path;
+};
+
+Node.prototype.getExtension = function () {
+    return this.extension;
+};
+
+Node.prototype.setExtension = function (extension) {
+    this.extension = extension;
+};
+
+Node.prototype.getType = function () {
+    return this.type;
+};
+
+Node.prototype.setType = function (type) {
+    this.type = type;
 };
 
 Node.prototype.getSons = function () {
