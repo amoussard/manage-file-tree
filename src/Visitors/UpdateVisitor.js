@@ -44,6 +44,14 @@ function UpdateVisitor(originPath) {
     }
     return type;
   };
+
+  this.computeName = function(node) {
+    var aFilePart = node.getValue().split('.');
+    if (aFilePart.length > 1) {
+      aFilePart.pop();
+    }
+    return aFilePart.join(".");
+  };
 }
 
 UpdateVisitor.prototype.visitBeforeSons = function(node) {
@@ -58,6 +66,7 @@ UpdateVisitor.prototype.begin = function(node) {
   node.setPath(this.computePath(node));
   node.setExtension(this.computeExtension(node));
   node.setType(this.computeType(node));
+  node.setName(this.computeName(node));
 };
 
 UpdateVisitor.prototype.end = function(node) {

@@ -10,6 +10,22 @@ module.exports = function(grunt) {
       all: ['Gruntfile.js', 'src/**/*.js']
     },
 
+    concat: {
+      options: {
+        separator: ';',
+      },
+      dev: {
+        src: [
+          'src/Tree/Node.js',
+          'src/Tree/Tree.js',
+          'src/Visitors/Visitor.js',
+          'src/Visitors/*.js',
+          'src/manage-file-tree.js'
+        ],
+        dest: 'dist/manage-file-tree.js',
+      }
+    },
+
     uglify: {
       dist: {
         files: {
@@ -118,6 +134,10 @@ module.exports = function(grunt) {
     'jshint',
     'jasmine:dist',
     'uglify'
+  ]);
+  grunt.registerTask('publish-dev', [
+    'jshint',
+    'concat:dev'
   ]);
   grunt.registerTask('test', [
     'jshint',
