@@ -28,10 +28,17 @@ var FileTree = (function() {
     tree.accept(visitor);
   };
 
+  var find = function(aFilters) {
+    var findVisitor = new FindVisitor(aFilters);
+    tree.accept(findVisitor);
+    return findVisitor.getResults();
+  };
+
   return {
     init: this.init,
     setTree: this.setTree,
-    acceptVisitor: this.acceptVisitor
+    acceptVisitor: this.acceptVisitor,
+    find: this.find
   };
 
 }());
